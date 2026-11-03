@@ -204,6 +204,7 @@ def main(args: argparse.Namespace) -> None:
         distribution_strategy=DDPStrategy(process_group_backend="gloo"),
         logger=CSVLogger(save_dir=os.path.join(run_dir, "logs")),
         plugins=[LightningEnvironment()],
+        ckpt_path=args.ckpt_path,
         )
     model.save_state_dict(os.path.join(run_dir, f"{name}_state_dict.pth"))
     model.save_config(os.path.join(run_dir, f"{name}_model_config.yml"))
@@ -226,4 +227,5 @@ if __name__ == "__main__":
     parser.add_argument("--num-workers", type=int, default=20)
     parser.add_argument("--max-epochs", type=int, default=200)
     parser.add_argument("--seed", type=int, default=42)
+    parser.add_argument("--ckpt-path", default=None)
     main(parser.parse_args())
