@@ -35,7 +35,7 @@ PULSEMAP_TEST = "pulses_no_noise"
 TRUTH_TABLE = "mc_truth"
 STAGES = {
     "fast": {"n_events": 1_000_000, "scheduler_patience": 2, "early_stopping_patience": 10},
-    "full": {"n_events": None, "scheduler_patience": 6, "early_stopping_patience": 20},
+    "full": {"n_events": None, "scheduler_patience": 2, "early_stopping_patience": 20},
     }
 TEST_BATCH_SIZE = 500
 
